@@ -9,6 +9,10 @@ description：
 说明：参考文献[1]丁舒阳,黎冰,侍洪波.基于改进的离散PSO算法的FJSP的研究[J].计算机科学,2018,45(04):233-239+256.
 参考书籍：柔性作业车间调度智能算法及其应用
 """
+'''
+说明：参考文献[1]丁舒阳,黎冰,侍洪波.基于改进的离散PSO算法的FJSP的研究[J].计算机科学,2018,45(04):233-239+256.
+参考书籍：柔性作业车间调度智能算法及其应用
+'''
 import Decode as Decode
 from ReadData import Input
 from Encode import Encode

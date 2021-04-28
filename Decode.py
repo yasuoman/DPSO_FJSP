@@ -9,6 +9,10 @@ description：
 说明：解码类,用于解码和画甘特图
 参考书籍：柔性作业车间调度智能算法及其应用  3.2.1FJSP的染色体编码和3.2.2FJSP的染色体解码
 """
+'''
+说明：解码类,用于解码和画甘特图
+参考书籍：柔性作业车间调度智能算法及其应用  3.2.1FJSP的染色体编码和3.2.2FJSP的染色体解码
+'''
 import numpy as np
 import matplotlib.pyplot as plt
 import os

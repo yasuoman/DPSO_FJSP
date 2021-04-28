@@ -8,6 +8,9 @@
 description：种群初始化编码
 说明：参考书籍：柔性作业车间调度智能算法及其应用  3.2.3FJSP的初始化
 """
+'''
+说明：参考书籍：柔性作业车间调度智能算法及其应用  3.2.3FJSP的初始化
+'''
 import numpy as np
 import random
 class Encode:

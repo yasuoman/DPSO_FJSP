@@ -8,6 +8,9 @@
 description：
 说明：读FJSP数据
 """
+'''
+说明：读FJSP数据
+'''
 import numpy as np
 
 class Input:
