@@ -36,13 +36,13 @@ class Encode:
         MS=np.empty((self.RS_num,self.half_chr),dtype=int)
         #随机选择OS
         OS = np.empty((self.RS_num, self.half_chr),dtype=int)
-        order_os = self.order_os()
+        order_os = self.order_os()[:]
         # 随机选择MS
         for episode in range(self.RS_num):
             #打乱os的顺序
             np.random.shuffle(order_os)
             #随机选择os
-            OS[episode]=order_os
+            OS[episode]=order_os[:]
             for op_index,p in enumerate(self.p_table):
                 #找出该工件能够加工的机器的序号
                 ava_m = [(index+1) for index in range(len(p)) if p[index]!=-1]
@@ -55,13 +55,13 @@ class Encode:
         MS = np.empty((self.GS_num, self.half_chr), dtype=int)
         # 随机选择OS
         OS = np.empty((self.GS_num, self.half_chr), dtype=int)
-        order_os = self.order_os()
+        order_os = self.order_os()[:]
         # 随机选择MS
         for episode in range(self.GS_num):
             # 打乱os的顺序
             np.random.shuffle(order_os)
             # 随机选择os
-            OS[episode] = order_os
+            OS[episode] = order_os[:]
             # 用于随机选择的工件集合
             job_list = [i for i in range(self.n)]
             # 初始化值为0的长度为m的负荷数组
@@ -90,13 +90,13 @@ class Encode:
         MS = np.empty((self.LS_num, self.half_chr), dtype=int)
         # 随机选择OS
         OS = np.empty((self.LS_num, self.half_chr), dtype=int)
-        order_os = self.order_os()
+        order_os = self.order_os()[:]
         # 随机选择MS
         for episode in range(self.LS_num):
             # 打乱os的顺序
             np.random.shuffle(order_os)
             # 随机选择os
-            OS[episode] = order_os
+            OS[episode] = order_os[:]
             # 因为不能直接得到二维矩阵的列索引，这里手工设置一个
             chr_index = 0
 

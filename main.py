@@ -18,6 +18,7 @@ from ReadData import Input
 from Encode import Encode
 import pso as pso
 import numpy as np
+import copy
 
 
 
@@ -62,10 +63,10 @@ def solve_FJSP(file_num,run_times):
 
     # 迭代次数，也可以根据m和n的值来调整大小，
     # Iter = 5*p_table.shape[1]*len(job_op_num)
-    Iter = 100
+    Iter = 200
 
     # 得到初始的个体最优位置
-    P = chrs
+    P = copy.deepcopy(chrs)
     # 得到初始的全局最优位置
     # Decode.decode(chr,job_op_num,p_table,'decode')，其中的‘decode’表示不画图，只是计算适应度
     fitness_list = [Decode.decode(chr, job_op_num, p_table, 'decode',None) for chr in P]
@@ -74,8 +75,9 @@ def solve_FJSP(file_num,run_times):
         # 计算pf
         pf = pf_max - (pf_max - pf_min) / Iter * iter
         # 更新种群中所有的染色体
+        copy_chrs = copy.deepcopy(chrs)
         chrs = [pso.f_operator(job_op_num, p_table, chr, P[index], Pg, pf, o_mega, c1, c2) for index, chr in
-                enumerate(chrs)]
+                enumerate(copy_chrs)]
         # 更新个体最优位置
         P = np.array([chr1 if Decode.decode(chr1, job_op_num, p_table, 'decode',None) <= Decode.decode(chr2, job_op_num,
                                                                                                   p_table, 'decode',None)
@@ -87,7 +89,7 @@ def solve_FJSP(file_num,run_times):
         # for chr in chrs:
         #     print(Decode.decode(chr, job_op_num, p_table, 'decode',None))
         # print("第" + str(iter + 1) + '次循环的最优fitness:', Decode.decode(Pg, job_op_num, p_table, 'decode',None))
-        print("第"+str(i+1)+'个数据集，第'+str(run_times+1)+'次运行'+'迭代：'+str(iter+1)+'/'+str(Iter))
+        print("第"+str(file_num+1)+'个数据集，第'+str(run_times+1)+'次运行'+'迭代：'+str(iter+1)+'/'+str(Iter))
 
     fitness = Decode.decode(Pg, job_op_num, p_table, 'decode',None)
 

@@ -80,7 +80,6 @@ def f1_operator(chr,half_chr,p_table):
             #总的待选的机器顺序号的列表
             total_m_list = [i + 1 for i in range(ava_m_num)]
             #去掉之前选的加工机器顺序号
-            a=ms[selected_index]
             total_m_list.remove(ms[selected_index])
             #随机选择剩余的可加工机器顺序号
             ms[selected_index] = np.random.choice(total_m_list)
